@@ -1,24 +1,44 @@
 import UIKit
 
-var ages: [Int] = []
-ages.sort()
-
-if let oldestAge = ages.last {
-    print("The oldest age is \(oldestAge)")
-} else {
-    print("the array is empty")
-}
-
-// Nil coalescing
-//let oldestAge = ages.last ?? 999
-
-// Guard Statement
-func getOldestAge() {
-    guard let oldestAge = ages.last else {
-        return
+class Developer {
+    var name: String
+    var jobTitle: String
+    var yearsExp: Int
+    
+    init(name: String, jobTitle: String, yearsExp: Int) {
+        self.name = name
+        self.jobTitle = jobTitle
+        self.yearsExp = yearsExp
     }
-    print("\(oldestAge) is oldest age.")
+    
+    func speakName() {
+        print(name)
+    }
+    
+    
 }
 
- 
-getOldestAge()
+let bacon = Developer(name: "Bacon", jobTitle: "programmer", yearsExp: 5)
+
+bacon.name
+bacon.jobTitle
+bacon.yearsExp
+bacon.speakName()
+
+class iOSDeveloper: Developer {
+    var favoriteFramework: String?
+    
+    func speakFavoriteFramework() {
+        if let favoriteFramework = favoriteFramework {
+            print(favoriteFramework)
+        } else {
+            print("I don't have a favorite framework")
+        }
+    }
+}
+
+let jakinBacon = iOSDeveloper(name: "Bacon", jobTitle: "junior dev", yearsExp: 1)
+
+jakinBacon.favoriteFramework = "ARKit"
+
+jakinBacon.speakFavoriteFramework()
